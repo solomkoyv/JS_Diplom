@@ -1,6 +1,6 @@
 function validNum() {
 	const inputsPhone = document.querySelectorAll('input[name="user_phone"]'),
-		inputsCounter = document.querySelectorAll('.counter-block-input');
+		inputsSize = document.querySelectorAll('input[name="size"]');
 
 	function onlyNumber(input) {
 		input.onkeydown = function () {
@@ -8,6 +8,6 @@ function validNum() {
 		};
 	}
 	[...inputsPhone].forEach(elem => onlyNumber(elem));
-	[...inputsCounter].forEach(elem => onlyNumber(elem));
+	[...inputsSize].forEach(elem => onlyNumber(elem));
 }
 export default validNum;
