@@ -1,5 +1,5 @@
 function timer() {
-	let deadLine = "2019-07-04";
+	let deadLine = "2018-11-02";
 
 	function getTimeRemaninig(endtime) {
 
@@ -20,7 +20,7 @@ function timer() {
 		};
 	}
 
-	function setCloack(id, endtime) {
+	function setClock(id, endtime) {
 		let timer = document.getElementById(id),
 			days = timer.querySelector(".days"),
 			hours = timer.querySelector(".hours"),
@@ -30,13 +30,12 @@ function timer() {
 
 		function updateClock() {
 			let t = getTimeRemaninig(endtime),
-				d = t.days.toString(),
-				h = t.hours.toString(),
-				m = t.minutes.toString(),
-				s = t.seconds.toString();
+				d = t.days,
+				h = t.hours,
+				m = t.minutes,
+				s = t.seconds;
 
 			if (
-				t.total <= 0 &&
 				t.days <= 0 &&
 				t.hours <= 0 &&
 				t.minutes <= 0 &&
@@ -49,12 +48,12 @@ function timer() {
 				clearInterval(timeInterval);
 			} else {
 				days.textContent = d;
-				hours.textContent = h.length < 2 ? `0${h}` : h;
-				minutes.textContent = m.length < 2 ? `0${m}` : m;
-				seconds.textContent = s.length < 2 ? `0${s}` : s;
+				hours.textContent = h < 10 ? `0${h}` : h;
+				minutes.textContent = m < 10 ? `0${m}` : m;
+				seconds.textContent = s < 10 ? `0${s}` : s;
 			}
 		}
 	}
-	setCloack("timer", deadLine);
+	setClock("timer", deadLine);
 }
 export default timer;
