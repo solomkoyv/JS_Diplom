@@ -1,14 +1,14 @@
 function timer() {
-	let deadLine = "2018-11-02";
+	let deadLine = "2019-07-04";
 
 	function getTimeRemaninig(endtime) {
 
-		let t = Date.parse(endtime) - Date.parse(new Date()),
-			x = new Date().getTimezoneOffset() / 60,
+		let x = new Date().getTimezoneOffset() * 60 * 1000,
+			t = ((Date.parse(endtime)) - Date.parse(new Date()) + x),
 			seconds = Math.floor((t / 1000) % 60),
 			minutes = Math.floor((t / 1000 / 60) % 60),
 			// hours = Math.floor(t / (1000 * 60 * 60)),
-			hours = Math.floor((t / 1000 / 60 / 60) % 24) + x,
+			hours = Math.floor((t / 1000 / 60 / 60) % 24),
 			days = Math.floor((t / (1000 * 60 * 60 * 24)));
 
 		return {
@@ -30,16 +30,13 @@ function timer() {
 
 		function updateClock() {
 			let t = getTimeRemaninig(endtime),
-				d = t.days.toString(),
-				h = t.hours.toString(),
-				m = t.minutes.toString(),
-				s = t.seconds.toString();
+				d = t.days,
+				h = t.hours,
+				m = t.minutes,
+				s = t.seconds;
 
 			if (
-				t.days <= 0 &&
-				t.hours <= 0 &&
-				t.minutes <= 0 &&
-				t.seconds <= 0
+				t.total <= 0
 			) {
 				days.textContent = "00";
 				hours.textContent = "00";
@@ -48,9 +45,9 @@ function timer() {
 				clearInterval(timeInterval);
 			} else {
 				days.textContent = d;
-				hours.textContent = h.length < 2 ? `0${h}` : h;
-				minutes.textContent = m.length < 2 ? `0${m}` : m;
-				seconds.textContent = s.length < 2 ? `0${s}` : s;
+				hours.textContent = h < 10 ? `0${h}` : h;
+				minutes.textContent = m < 10 ? `0${m}` : m;
+				seconds.textContent = s < 10 ? `0${s}` : s;
 			}
 		}
 	}
