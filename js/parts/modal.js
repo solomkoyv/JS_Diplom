@@ -23,8 +23,8 @@ function modal() {
 		if (statusMessage != undefined) {
 			statusMessage.innerHTML = '';
 		}
-
 	}
+
 	body.addEventListener("click", e => {
 		let target = e.target;
 
@@ -51,6 +51,10 @@ function modal() {
 			hideModal(target);
 		}
 	});
+
+	setTimeout(function velcom() {
+		showModal(popup);
+	}, 60000);
 }
 
 export default modal;
