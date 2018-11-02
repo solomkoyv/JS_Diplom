@@ -3,7 +3,7 @@ function validNum() {
 		inputsSize = document.querySelectorAll('input[name="size"]');
 
 	function onlyNumber(input) {
-		input.onkeydown = function () {
+		input.onkeyup = function () {
 			return (this.value = this.value.replace(/[^0-9]/g, ""));
 		};
 	}
