@@ -1,4 +1,4 @@
-// import tabs from './parts/tabs';
+import tabs from './parts/tabs';
 import modal from './parts/modal';
 import timer from './parts/timer';
 import forms from './parts/forms';
@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 	"use strict";
 
-	// tabs();
+	tabs();
 	modal();
 	timer();
 	forms();
