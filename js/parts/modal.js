@@ -11,8 +11,6 @@ function modal() {
 	overleyPicture.classList.add('bigPicture', 'overlay');
 
 	let overlay = document.querySelectorAll(".overlay");
-	console.log(overlay);
-
 
 	function showModal(modal) {
 		modal.style.display = "block";
