@@ -691,7 +691,7 @@ a, button, input, textarea {
 }
 
 /*Modals*/
-.popup, .popup_engineer, .popup_calc_end {
+.popup, .popup_engineer, .popup_calc_end, .overlay {
 	display: none;
 	position: fixed;
 	top: 0;
@@ -716,6 +716,14 @@ a, button, input, textarea {
 		color: @white;
 		border: none;	
 		background: transparent;
+	}
+}
+.bigPicture{
+	img{
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 }
 .popup_calc {

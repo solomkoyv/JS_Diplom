@@ -1,11 +1,17 @@
 function modal() {
-	const overlay = document.querySelectorAll(".overlay"),
-		popup = document.querySelector(".popup"),
+	const popup = document.querySelector(".popup"),
 		popup_engineer = document.querySelector(".popup_engineer"),
 		popup_calc = document.querySelector(".popup_calc"),
 		popup_calc_profile = document.querySelector(".popup_calc_profile"),
 		popup_calc_end = document.querySelector(".popup_calc_end"),
-		body = document.querySelector("body");
+		body = document.querySelector("body"),
+		overleyPicture = document.createElement("div");
+
+	body.appendChild(overleyPicture);
+	overleyPicture.classList.add('bigPicture', 'overlay');
+
+	let overlay = document.querySelectorAll(".overlay");
+	console.log(overlay);
 
 
 	function showModal(modal) {
@@ -23,6 +29,15 @@ function modal() {
 		if (statusMessage != undefined) {
 			statusMessage.innerHTML = '';
 		}
+	}
+
+
+	function bigPictures(picture) {
+
+		let pic = picture.parentNode.href;
+
+		overleyPicture.innerHTML = `<img src='${pic}'>`;
+		showModal(overleyPicture);
 	}
 
 	body.addEventListener("click", e => {
@@ -49,6 +64,10 @@ function modal() {
 		}
 		if (target && target.classList.contains("close_btn") || target.classList.contains("overlay")) {
 			hideModal(target);
+		}
+		if (target && target.classList.contains("lupa") || target.classList.contains("small_picture")) {
+			e.preventDefault();
+			bigPictures(target);
 		}
 	});
 

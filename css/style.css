@@ -715,7 +715,8 @@ textarea:focus {
 /*Modals*/
 .popup,
 .popup_engineer,
-.popup_calc_end {
+.popup_calc_end,
+.overlay {
   display: none;
   position: fixed;
   top: 0;
@@ -727,7 +728,8 @@ textarea:focus {
 }
 .popup_content,
 .popup_engineer_content,
-.popup_calc_end_content {
+.popup_calc_end_content,
+.overlay_content {
   position: fixed;
   top: 10%;
   left: 50%;
@@ -737,7 +739,8 @@ textarea:focus {
 }
 .popup_close,
 .popup_engineer_close,
-.popup_calc_end_close {
+.popup_calc_end_close,
+.overlay_close {
   position: absolute;
   top: -2.2rem;
   right: -5rem;
@@ -745,6 +748,12 @@ textarea:focus {
   color: #fff;
   border: none;
   background: transparent;
+}
+.bigPicture img {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .popup_calc {
   display: none;
