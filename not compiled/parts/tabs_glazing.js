@@ -1,7 +1,7 @@
-function tabs_furnish() {
+function tabs_glazing() {
 	const body = document.querySelector("body"),
-		tabContent = document.querySelectorAll(".tabcontent_furnish"),
-		tab = document.querySelectorAll(".furnish_tab");
+		tabContent = document.querySelectorAll(".tabcontent_glazing"),
+		tab = document.querySelectorAll(".glazing_block");
 
 	function hideTabContent(a) {
 		for (let i = a; i < tabContent.length; i++) {
@@ -9,8 +9,8 @@ function tabs_furnish() {
 			tabContent[i].classList.add("hide");
 		}
 		for (let i = a; i < tab.length; i++) {
-			tab[i].classList.remove("after_click");
-			tab[i].classList.add("no_click");
+			tab[i].childNodes[2].nextSibling.classList.remove('active');
+			tab[i].childNodes[2].nextSibling.classList.add('no_active');
 		}
 	}
 	hideTabContent(1);
@@ -20,15 +20,15 @@ function tabs_furnish() {
 			tabContent[b].classList.remove("hide");
 			tabContent[b].classList.add("show");
 		}
-		if (tab[b].classList.contains("no_click")) {
-			tab[b].classList.remove("no_click");
-			tab[b].classList.add("after_click");
+		if (tab[b].childNodes[2].nextSibling.classList.contains("no_active")) {
+			tab[b].childNodes[2].nextSibling.classList.remove("no_active");
+			tab[b].childNodes[2].nextSibling.classList.add("active");
 		}
 	}
 	body.addEventListener("click", e => {
 		let target = e.target;
 
-		if (target && target.classList.contains("furnish_tab") || target.parentNode.classList.contains("furnish_tab")) {
+		if (target && target.classList.contains("glazing_block") || target.parentNode.classList.contains("glazing_block")) {
 			[...tab].forEach(function (e, i) {
 				if (target == e || target.parentNode == e) {
 					hideTabContent(0);
@@ -39,4 +39,4 @@ function tabs_furnish() {
 	});
 }
 
-export default tabs_furnish;
+export default tabs_glazing;

@@ -1,9 +1,14 @@
-function forms() {
+
+// import calc from './calc';
+
+function forms(elem) {
 	let message = {
 		loading: `<img src='https://img-fotki.yandex.ru/get/4914/54833049.21/0_803b8_ba6370a6_XS.jpg'>`,
 		success: `<img src='https://img-fotki.yandex.ru/get/5113/54833049.22/0_803bd_d6d87b9f_XS.jpg'>`,
 		failure: `<img src='https://img-fotki.yandex.ru/get/5810/54833049.22/0_803b9_56e09f93_XS.jpg'>`
 	};
+
+	// console.log(calc());
 
 	let form = document.querySelectorAll(".form"),
 		// contactForm = document.querySelector("#form"),
@@ -15,6 +20,10 @@ function forms() {
 	function sendForm(elem) {
 		elem.addEventListener("submit", function (e) {
 			e.preventDefault();
+
+			// let formDataCalc = calc();
+			// console.log(formDataCalc);
+
 			elem.appendChild(statusMessage);
 
 			let formData = new FormData(elem);
