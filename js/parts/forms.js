@@ -1,5 +1,5 @@
-
-// import calc from './calc';
+import calc, { data_calc } from './calc';
+calc();
 
 function forms(elem) {
 	let message = {
@@ -8,10 +8,7 @@ function forms(elem) {
 		failure: `<img src='https://img-fotki.yandex.ru/get/5810/54833049.22/0_803b9_56e09f93_XS.jpg'>`
 	};
 
-	// console.log(calc());
-
 	let form = document.querySelectorAll(".form"),
-		// contactForm = document.querySelector("#form"),
 		input = document.getElementsByTagName("input"),
 		statusMessage = document.createElement("div");
 
@@ -21,12 +18,14 @@ function forms(elem) {
 		elem.addEventListener("submit", function (e) {
 			e.preventDefault();
 
-			// let formDataCalc = calc();
-			// console.log(formDataCalc);
-
 			elem.appendChild(statusMessage);
 
 			let formData = new FormData(elem);
+			if (data_calc) {
+				for (let key in data_calc) {
+					formData.append(key, data_calc[key]);
+				}
+			}
 
 			function postData(data) {
 				return new Promise(function (resolve, reject) {
@@ -45,7 +44,6 @@ function forms(elem) {
 						} else if (request.readyState === 4) {
 							if (request.status == 200 && request.status < 3) {
 								resolve();
-								// statusMessage.textContent = message.success;
 							} else {
 								reject();
 							}
@@ -65,19 +63,10 @@ function forms(elem) {
 				.then(clearInputs);
 		});
 	}
-	// body.addEventListener('click', function (event) {
-	// 	let target = event.target;
-	// 	if (target && target == 'button[type="submit"]') {
-	// 		let form =
-	// 			sendForm(form);
-	// 	}
-	// });
 
 	[...form].forEach(function (element) {
 		sendForm(element);
 	});
-
-	// sendForm(contactForm);
 }
 
 export default forms;

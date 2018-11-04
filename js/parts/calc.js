@@ -1,4 +1,4 @@
-// import forms from './forms';
+let data_calc = {};
 
 function calc() {
 
@@ -63,7 +63,6 @@ function calc() {
 	function calcTotal() {
 
 		let type_w;
-		let formData = new FormData();
 
 		type_window.forEach(e => {
 			if (e.classList.contains('show')) {
@@ -83,7 +82,7 @@ function calc() {
 		total.material = material.value;
 		total.temp = t;
 
-		// return total;
+		data_calc = total;
 	}
 
 
@@ -103,29 +102,31 @@ function calc() {
 			showModal(popup_calc);
 		}
 		if (target && target.classList.contains("popup_calc_button")) {
-			if ((w.value == '' || h.value == '') || (w.value == 0 || h.value == 0)) {
-				alert("ВВЕДИТЕ РАЗМЕРЫ ОКНА!");
-			} else {
+			if ((w.value || h.value)) {
 				calcTotal();
 				hideModal(popup_calc);
 				showModal(popup_calc_profile);
+			} else {
+				alert("ВВЕДИТЕ РАЗМЕРЫ ОКНА!");
 			}
 		}
 		if (target && target.classList.contains("popup_calc_profile_button")) {
-			calcTotal();
-			hideModal(popup_calc_profile);
-			showModal(popup_calc_end);
+			if (temp[0].checked || temp[1].checked) {
+				calcTotal();
+				hideModal(popup_calc_profile);
+				showModal(popup_calc_end);
+			} else {
+				alert("ВВЕДИТЕ ТИП И ПРОВИЛЬ ОКНА!");
+			}
 		}
 		if (target && target.classList.contains('form_calc_btn')) {
 			console.log(total);
-			console.log(formData);
-			// forms(total);
 		}
 		if (target && target.classList.contains("cls")) {
 			total = {};
 			hideModal(target);
-			clearInputs()
-			// console.log(total);
+			clearInputs();
+			material.options[0].selected = true;
 		}
 
 		// Tabs Calc
@@ -140,9 +141,8 @@ function calc() {
 			});
 		}
 	});
-	// return total;
-	// let formData = new FormData(total);
-	// console.log(formData);
 }
+
+export { data_calc }
 
 export default calc;
