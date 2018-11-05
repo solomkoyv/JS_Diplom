@@ -119,11 +119,17 @@ function calc() {
 				alert("ВВЕДИТЕ ТИП И ПРОВИЛЬ ОКНА!");
 			}
 		}
-		if (target && target.classList.contains('form_calc_btn')) {
-			console.log(total);
-		}
+
+		// if (target && target.classList.contains('form_calc_btn')) {
+		// 	total = {};
+		// 	data_calc = {};
+		// 	console.log(total);
+		// 	console.log(data_calc);
+		// }
+
 		if (target && target.classList.contains("cls")) {
 			total = {};
+			data_calc = {};
 			hideModal(target);
 			clearInputs();
 			material.options[0].selected = true;

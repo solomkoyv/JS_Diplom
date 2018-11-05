@@ -56,11 +56,16 @@ function forms(elem) {
 			function clearInputs() {
 				[...input].forEach(elem => (elem.value = ""));
 			}
+			function clerObj(data_calc) {
+				data_calc = {};
+				return data_calc;
+			}
 			postData(formData)
 				.then(() => (statusMessage.innerHTML = message.loading))
 				.then(() => (statusMessage.innerHTML = message.success))
 				.catch(() => (statusMessage.innerHTML = message.failure))
-				.then(clearInputs);
+				.then(clearInputs)
+				.then(clerObj(data_calc));
 		});
 	}
 
