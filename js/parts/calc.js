@@ -117,6 +117,7 @@ function calc() {
 				showModal(popup_calc_profile);
 			} else {
 				alert("ВВЕДИТЕ РАЗМЕРЫ ОКНА!");
+				// console.log(target);
 			}
 		}
 		if (target && target.classList.contains("popup_calc_profile_button")) {

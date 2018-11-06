@@ -1,5 +1,5 @@
 import calc, { data_calc } from './calc';
-calc();
+// calc();
 
 function forms(elem) {
 	let message = {
