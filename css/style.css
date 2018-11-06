@@ -787,6 +787,18 @@ textarea:focus {
 }
 .popup_calc_content .balcon_icons {
   margin-bottom: 1rem;
+  overflow: hidden;
+  height: 5em;
+  line-height: 5em;
+}
+.popup_calc_content .balcon_icons a img {
+  transform: scale(0.8);
+}
+.popup_calc_content .balcon_icons a .active_type_window {
+  transform: scale(1.32);
+}
+.popup_calc_content .balcon_icons a .not_active_type_window {
+  transform: scale(0.8);
 }
 .popup_calc_content .big_img img {
   display: none;

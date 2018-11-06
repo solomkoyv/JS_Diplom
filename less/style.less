@@ -728,6 +728,7 @@ a, button, input, textarea {
 		transform: translate(-50%, -50%);
 	}
 }
+
 .popup_calc {
 	display: none;
 	position: fixed;
@@ -756,7 +757,21 @@ a, button, input, textarea {
 			margin-bottom: 3rem;
 		}
 		.balcon_icons {
-			margin-bottom: 1rem; 
+			margin-bottom: 1rem;
+			overflow: hidden;
+			height: 5em;
+    		line-height: 5em;
+			a{
+				img{
+					transform: scale(.8);
+				}
+				.active_type_window{
+					transform: scale(1.32);
+				}
+				.not_active_type_window{
+					transform: scale(.8);
+				}
+			}
 		}
 		.big_img img {
 			display: none;

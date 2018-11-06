@@ -12,6 +12,7 @@ function calc() {
 		height = document.getElementById('height'),
 		type_window = document.querySelectorAll(".window"),
 		tab = document.querySelectorAll(".type_window"),
+		type_win = document.querySelectorAll(".t_w"),
 		material = document.getElementById("view_type"),
 		temp = document.getElementsByName('checkbox-test');
 	let total = {};
@@ -23,6 +24,10 @@ function calc() {
 			type_window[i].classList.remove("show");
 			type_window[i].classList.add("hide");
 		}
+		for (let i = a; i < type_win.length; i++) {
+			type_win[i].classList.remove("active_type_window");
+			type_win[i].classList.add("not_active_type_window");
+		}
 	}
 	hidetype_window(1);
 
@@ -30,6 +35,10 @@ function calc() {
 		if (type_window[b].classList.contains("hide")) {
 			type_window[b].classList.remove("hide");
 			type_window[b].classList.add("show");
+		}
+		if (type_win[b].classList.contains("not_active_type_window")) {
+			type_win[b].classList.remove("not_active_type_window");
+			type_win[b].classList.add("active_type_window");
 		}
 	}
 
@@ -102,7 +111,7 @@ function calc() {
 			showModal(popup_calc);
 		}
 		if (target && target.classList.contains("popup_calc_button")) {
-			if ((w.value || h.value) && (w.value != 0 || h.value != 0)) {
+			if ((w.value || h.value) && (w.value != 0 && h.value != 0)) {
 				calcTotal();
 				hideModal(popup_calc);
 				showModal(popup_calc_profile);
