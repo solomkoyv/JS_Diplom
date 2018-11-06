@@ -40,22 +40,13 @@ function modal() {
 		// Modal
 
 		if (target && target.classList.contains("header_btn")) {
+			e.preventDefault();
 			showModal(popup_engineer);
 		}
 		if (target && target.classList.contains("phone_link")) {
+			e.preventDefault();
 			showModal(popup);
 		}
-		// if (target && target.classList.contains("popup_calc_btn")) {
-		// 	showModal(popup_calc);
-		// }
-		// if (target && target.classList.contains("popup_calc_button")) {
-		// 	hideModal(popup_calc);
-		// 	showModal(popup_calc_profile);
-		// }
-		// if (target && target.classList.contains("popup_calc_profile_button")) {
-		// 	hideModal(popup_calc_profile);
-		// 	showModal(popup_calc_end);
-		// }
 		if (target && target.classList.contains("close_btn") || target.classList.contains("overlay")) {
 			hideModal(target);
 		}

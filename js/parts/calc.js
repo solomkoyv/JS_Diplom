@@ -102,7 +102,7 @@ function calc() {
 			showModal(popup_calc);
 		}
 		if (target && target.classList.contains("popup_calc_button")) {
-			if ((w.value || h.value)) {
+			if ((w.value || h.value) && (w.value != 0 || h.value != 0)) {
 				calcTotal();
 				hideModal(popup_calc);
 				showModal(popup_calc_profile);
@@ -139,6 +139,7 @@ function calc() {
 
 		if (target && target.classList.contains("type_window") ||
 			target.parentNode.classList.contains("type_window")) {
+			e.preventDefault();
 			[...tab].forEach(function (e, i) {
 				if (target == e || target.parentNode == e) {
 					hidetype_window(0);
